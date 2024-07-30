@@ -18,24 +18,27 @@ export type TextStyleArray = {
  * @param {boolean} forTextSpans whether to check overline, underline, and line-through properties
  * @return {boolean} true if the style changed
  */
-export let hasStyleChanged = (
+export function hasStyleChanged(
   prevStyle: TextStyleDeclaration,
   thisStyle: TextStyleDeclaration,
   forTextSpans = false
-) =>
-  prevStyle.fill !== thisStyle.fill ||
-  prevStyle.stroke !== thisStyle.stroke ||
-  prevStyle.strokeWidth !== thisStyle.strokeWidth ||
-  prevStyle.fontSize !== thisStyle.fontSize ||
-  prevStyle.fontFamily !== thisStyle.fontFamily ||
-  prevStyle.fontWeight !== thisStyle.fontWeight ||
-  prevStyle.fontStyle !== thisStyle.fontStyle ||
-  prevStyle.textBackgroundColor !== thisStyle.textBackgroundColor ||
-  prevStyle.deltaY !== thisStyle.deltaY ||
-  (forTextSpans &&
-    (prevStyle.overline !== thisStyle.overline ||
-      prevStyle.underline !== thisStyle.underline ||
-      prevStyle.linethrough !== thisStyle.linethrough));
+) {
+  return {
+    prevStyle.fill !== thisStyle.fill ||
+      prevStyle.stroke !== thisStyle.stroke ||
+      prevStyle.strokeWidth !== thisStyle.strokeWidth ||
+      prevStyle.fontSize !== thisStyle.fontSize ||
+      prevStyle.fontFamily !== thisStyle.fontFamily ||
+      prevStyle.fontWeight !== thisStyle.fontWeight ||
+      prevStyle.fontStyle !== thisStyle.fontStyle ||
+      prevStyle.textBackgroundColor !== thisStyle.textBackgroundColor ||
+      prevStyle.deltaY !== thisStyle.deltaY ||
+      (forTextSpans &&
+        (prevStyle.overline !== thisStyle.overline ||
+          prevStyle.underline !== thisStyle.underline ||
+          prevStyle.linethrough !== thisStyle.linethrough));
+  }
+}
 
 /**
  * Returns the array form of a text object's inline styles property with styles grouped in ranges
