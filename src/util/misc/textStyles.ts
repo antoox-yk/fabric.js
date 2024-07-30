@@ -18,7 +18,7 @@ export type TextStyleArray = {
  * @param {boolean} forTextSpans whether to check overline, underline, and line-through properties
  * @return {boolean} true if the style changed
  */
-export const hasStyleChanged = (
+export let hasStyleChanged = (
   prevStyle: TextStyleDeclaration,
   thisStyle: TextStyleDeclaration,
   forTextSpans = false
