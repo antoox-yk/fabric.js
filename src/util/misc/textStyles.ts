@@ -36,7 +36,9 @@ export const hasStyleChanged = (
     (prevStyle.overline !== thisStyle.overline ||
       prevStyle.underline !== thisStyle.underline ||
       prevStyle.linethrough !== thisStyle.linethrough)) ||
+  // @ts-expect-error internal def
   prevStyle.textDecorationColor !== thisStyle.textDecorationColor ||
+  // @ts-expect-error internal def
   prevStyle.charScript !== thisStyle.charScript;
 
 /**
